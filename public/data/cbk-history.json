@@ -1,0 +1,17 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "history": [
+    { "date": "2023-01", "cbr": 8.75, "inflation": 9.00 },
+    { "date": "2023-03", "cbr": 9.50, "inflation": 9.20 },
+    { "date": "2023-06", "cbr": 10.50, "inflation": 7.90 },
+    { "date": "2023-09", "cbr": 10.50, "inflation": 6.80 },
+    { "date": "2023-12", "cbr": 12.50, "inflation": 6.60 },
+    { "date": "2024-02", "cbr": 13.00, "inflation": 6.30 },
+    { "date": "2024-04", "cbr": 13.00, "inflation": 5.00 },
+    { "date": "2024-08", "cbr": 12.75, "inflation": 4.40 },
+    { "date": "2024-10", "cbr": 12.00, "inflation": 2.70 },
+    { "date": "2024-12", "cbr": 11.25, "inflation": 3.00 },
+    { "date": "2025-02", "cbr": 10.50, "inflation": 3.50 },
+    { "date": "2025-05", "cbr": 10.00, "inflation": 4.00 }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "saccos": [
+    {
+      "id": "stima",
+      "name": "Stima SACCO",
+      "dividendOnShares": 15.00,
+      "interestOnDeposits": 11.00,
+      "membershipFee": 500,
+      "minMonthlySaving": 1000
+    },
+    {
+      "id": "police",
+      "name": "Kenya Police SACCO",
+      "dividendOnShares": 17.00,
+      "interestOnDeposits": 10.80,
+      "membershipFee": 1000,
+      "minMonthlySaving": 2000
+    },
+    {
+      "id": "harambee",
+      "name": "Harambee SACCO",
+      "dividendOnShares": 12.00,
+      "interestOnDeposits": 8.50,
+      "membershipFee": 500,
+      "minMonthlySaving": 1000
+    },
+    {
+      "id": "safari",
+      "name": "Safaricom SACCO",
+      "dividendOnShares": 14.00,
+      "interestOnDeposits": 9.50,
+      "membershipFee": 1000,
+      "minMonthlySaving": 3000
+    },
+    {
+      "id": "mwalimu",
+      "name": "Mwalimu National SACCO",
+      "dividendOnShares": 13.50,
+      "interestOnDeposits": 10.20,
+      "membershipFee": 500,
+      "minMonthlySaving": 1000
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "datasets": {
+    "bank-rates": {
+      "lastUpdated": "2026-05-05T09:00:00+03:00",
+      "source": "CBK & Individual Bank Websites",
+      "updateFrequency": "weekly"
+    },
+    "exchange-rates": {
+      "lastUpdated": "2026-05-05T09:00:00+03:00",
+      "source": "CBK Foreign Exchange Rates",
+      "updateFrequency": "daily"
+    },
+    "articles": {
+      "lastUpdated": "2026-05-05T09:00:00+03:00",
+      "source": "MoneyIQ Editorial",
+      "updateFrequency": "as-published"
+    }
+  }
+}

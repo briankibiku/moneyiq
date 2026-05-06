@@ -1,0 +1,29 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "banks": [
+    {
+      "id": "kcb",
+      "name": "KCB Bank",
+      "ledgerFee": 350,
+      "atmWithdrawal": 30,
+      "mobileTransferToBank": 50,
+      "mobileTransferToMpesa": 45
+    },
+    {
+      "id": "equity",
+      "name": "Equity Bank",
+      "ledgerFee": 0,
+      "atmWithdrawal": 30,
+      "mobileTransferToBank": 0,
+      "mobileTransferToMpesa": 35
+    },
+    {
+      "id": "coop",
+      "name": "Co-operative Bank",
+      "ledgerFee": 300,
+      "atmWithdrawal": 35,
+      "mobileTransferToBank": 55,
+      "mobileTransferToMpesa": 48
+    }
+  ]
+}

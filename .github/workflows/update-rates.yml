@@ -1,0 +1,33 @@
+name: Daily Financial Rate Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Run at 6:00 AM UTC daily
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/checkout@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run update scripts
+        run: |
+          node scripts/update-rates.js
+          # Add other update scripts here as they are developed
+          
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'MoneyIQ Update Bot'
+          git config --global user.email 'bot@moneyiq.co.ke'
+          git add public/data/*.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-update financial rates [skip ci]" && git push)

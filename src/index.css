@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ================================
+   MoneyIQ Minimalist Design System
+   ================================ */
+
+@theme {
+  /* Minimalist Monochrome Palette */
+  --color-primary: #111827; /* Black */
+  --color-primary-light: #374151;
+  --color-primary-dark: #000000;
+  --color-secondary: #6B7280; /* Gray */
+  --color-accent: #111827; /* Black */
+
+  /* Surface Colors */
+  --color-dark-900: #FFFFFF; /* Pure White */
+  --color-dark-800: #FFFFFF; /* Pure White Surface */
+  --color-dark-700: #F3F4F6; /* Light Gray Border */
+  --color-dark-600: #E5E7EB;
+  --color-dark-500: #D1D5DB;
+
+  /* Text Colors */
+  --color-light-50: #111827; /* Black */
+  --color-light-100: #1F2937;
+  --color-light-200: #374151;
+  --color-light-300: #4B5563;
+  --color-light-400: #6B7280;
+
+  --color-success: #000000;
+  --color-warning: #4B5563;
+  --color-error: #000000;
+
+  /* Typography */
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-dark-900);
+  color: var(--color-light-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   Minimalist Components
+   ================================ */
+
+/* Premium Minimalist Card */
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: #111827;
+}
+
+/* Minimalist Input */
+.input-group-modern {
+  @apply relative rounded-lg border border-gray-200 bg-white transition-all duration-200;
+}
+
+.input-group-modern:focus-within {
+  @apply border-black shadow-sm;
+}
+
+/* Remove Gradients */
+.gradient-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: inherit;
+  font-weight: bold;
+}
+
+.gradient-cta {
+  background: #111827;
+}
+
+.font-number {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+}
+
+/* Print Styles */
+@media print {
+  .no-print, header, footer {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .glass-card {
+    background: white !important;
+    border: 1px solid #eee !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}

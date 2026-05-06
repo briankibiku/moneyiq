@@ -1,0 +1,9 @@
+# MoneyIQ Kenya - Robots.txt
+# https://moneyiq.co.ke/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://moneyiq.co.ke/sitemap.xml

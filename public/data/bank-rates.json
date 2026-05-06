@@ -1,0 +1,211 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "source": "Central Bank of Kenya",
+  "centralBankRate": 10.00,
+  "interbankRate": 11.25,
+  "treasuryBills": {
+    "91day": 9.80,
+    "182day": 10.20,
+    "364day": 10.85
+  },
+  "banks": [
+    {
+      "id": "kcb",
+      "name": "KCB Bank",
+      "logo": "/logos/kcb.svg",
+      "lendingRate": 14.50,
+      "savingsRate": 3.50,
+      "mortgageRate": 13.50,
+      "personalLoanRate": 16.00,
+      "fixedDepositRate": {
+        "3months": 5.00,
+        "6months": 6.50,
+        "12months": 8.50
+      }
+    },
+    {
+      "id": "equity",
+      "name": "Equity Bank",
+      "logo": "/logos/equity.svg",
+      "lendingRate": 14.00,
+      "savingsRate": 3.00,
+      "mortgageRate": 13.00,
+      "personalLoanRate": 15.50,
+      "fixedDepositRate": {
+        "3months": 4.50,
+        "6months": 6.00,
+        "12months": 8.00
+      }
+    },
+    {
+      "id": "coop",
+      "name": "Co-operative Bank",
+      "logo": "/logos/coop.svg",
+      "lendingRate": 14.80,
+      "savingsRate": 3.25,
+      "mortgageRate": 13.80,
+      "personalLoanRate": 16.50,
+      "fixedDepositRate": {
+        "3months": 5.25,
+        "6months": 6.75,
+        "12months": 8.75
+      }
+    },
+    {
+      "id": "absa",
+      "name": "ABSA Bank Kenya",
+      "logo": "/logos/absa.svg",
+      "lendingRate": 13.50,
+      "savingsRate": 2.75,
+      "mortgageRate": 12.50,
+      "personalLoanRate": 15.00,
+      "fixedDepositRate": {
+        "3months": 4.75,
+        "6months": 6.25,
+        "12months": 8.25
+      }
+    },
+    {
+      "id": "stanchart",
+      "name": "Standard Chartered",
+      "logo": "/logos/stanchart.svg",
+      "lendingRate": 13.00,
+      "savingsRate": 2.50,
+      "mortgageRate": 12.00,
+      "personalLoanRate": 14.50,
+      "fixedDepositRate": {
+        "3months": 4.25,
+        "6months": 5.75,
+        "12months": 7.75
+      }
+    },
+    {
+      "id": "ncba",
+      "name": "NCBA Bank",
+      "logo": "/logos/ncba.svg",
+      "lendingRate": 14.20,
+      "savingsRate": 3.00,
+      "mortgageRate": 13.20,
+      "personalLoanRate": 15.80,
+      "fixedDepositRate": {
+        "3months": 5.00,
+        "6months": 6.50,
+        "12months": 8.50
+      }
+    },
+    {
+      "id": "stanbic",
+      "name": "Stanbic Bank",
+      "logo": "/logos/stanbic.svg",
+      "lendingRate": 13.80,
+      "savingsRate": 2.80,
+      "mortgageRate": 12.80,
+      "personalLoanRate": 15.20,
+      "fixedDepositRate": {
+        "3months": 4.50,
+        "6months": 6.00,
+        "12months": 8.00
+      }
+    },
+    {
+      "id": "dtb",
+      "name": "Diamond Trust Bank",
+      "logo": "/logos/dtb.svg",
+      "lendingRate": 14.50,
+      "savingsRate": 3.50,
+      "mortgageRate": 13.50,
+      "personalLoanRate": 16.00,
+      "fixedDepositRate": {
+        "3months": 5.50,
+        "6months": 7.00,
+        "12months": 9.00
+      }
+    },
+    {
+      "id": "im",
+      "name": "I&M Bank",
+      "logo": "/logos/im.svg",
+      "lendingRate": 14.00,
+      "savingsRate": 3.25,
+      "mortgageRate": 13.00,
+      "personalLoanRate": 15.50,
+      "fixedDepositRate": {
+        "3months": 5.00,
+        "6months": 6.50,
+        "12months": 8.50
+      }
+    },
+    {
+      "id": "familybank",
+      "name": "Family Bank",
+      "logo": "/logos/familybank.svg",
+      "lendingRate": 15.00,
+      "savingsRate": 4.00,
+      "mortgageRate": 14.00,
+      "personalLoanRate": 17.00,
+      "fixedDepositRate": {
+        "3months": 5.75,
+        "6months": 7.25,
+        "12months": 9.25
+      }
+    }
+  ],
+  "moneyMarketFunds": [
+    {
+      "id": "cic",
+      "name": "CIC Money Market Fund",
+      "yield": 11.85,
+      "minInvestment": 5000,
+      "topUp": 1000
+    },
+    {
+      "id": "sanlam",
+      "name": "Sanlam Money Market Fund",
+      "yield": 11.50,
+      "minInvestment": 2500,
+      "topUp": 1000
+    },
+    {
+      "id": "icea",
+      "name": "ICEA Lion Money Market Fund",
+      "yield": 11.20,
+      "minInvestment": 500,
+      "topUp": 500
+    },
+    {
+      "id": "britam",
+      "name": "Britam Money Market Fund",
+      "yield": 10.90,
+      "minInvestment": 1000,
+      "topUp": 1000
+    },
+    {
+      "id": "zimele",
+      "name": "Zimele Money Market Fund",
+      "yield": 9.50,
+      "minInvestment": 100,
+      "topUp": 100
+    },
+    {
+      "id": "dryassociates",
+      "name": "Dry Associates MMF",
+      "yield": 12.10,
+      "minInvestment": 1000000,
+      "topUp": 100000
+    },
+    {
+      "id": "oldmutual",
+      "name": "Old Mutual MMF",
+      "yield": 10.50,
+      "minInvestment": 5000,
+      "topUp": 1000
+    },
+    {
+      "id": "absa-mmf",
+      "name": "ABSA Money Market Fund",
+      "yield": 11.00,
+      "minInvestment": 5000,
+      "topUp": 1000
+    }
+  ]
+}

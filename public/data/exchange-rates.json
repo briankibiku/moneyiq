@@ -1,0 +1,16 @@
+{
+  "lastUpdated": "2026-05-05T09:00:00+03:00",
+  "base": "KES",
+  "rates": [
+    { "code": "USD", "name": "US Dollar", "buy": 128.50, "sell": 130.50, "flag": "🇺🇸" },
+    { "code": "GBP", "name": "Sterling Pound", "buy": 162.20, "sell": 165.40, "flag": "🇬🇧" },
+    { "code": "EUR", "name": "Euro", "buy": 138.40, "sell": 141.10, "flag": "🇪🇺" },
+    { "code": "ZAR", "name": "SA Rand", "buy": 6.85, "sell": 7.15, "flag": "🇿🇦" },
+    { "code": "UGX", "name": "Uganda Shilling", "buy": 28.50, "sell": 30.20, "flag": "🇺🇬" },
+    { "code": "TZS", "name": "Tanzania Shilling", "buy": 19.80, "sell": 21.40, "flag": "🇹🇿" },
+    { "code": "RWF", "name": "Rwanda Franc", "buy": 9.80, "sell": 10.50, "flag": "🇷🇼" },
+    { "code": "AED", "name": "UAE Dirham", "buy": 34.80, "sell": 35.60, "flag": "🇦🇪" },
+    { "code": "CNY", "name": "Chinese Yuan", "buy": 17.60, "sell": 18.20, "flag": "🇨🇳" },
+    { "code": "INR", "name": "Indian Rupee", "buy": 1.52, "sell": 1.58, "flag": "🇮🇳" }
+  ]
+}
