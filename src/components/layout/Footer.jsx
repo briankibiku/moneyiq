@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 const footerLinks = {
   calculators: [
-    { label: 'PAYE Calculator', href: '/calculators/paye' },
-    { label: 'M-Pesa Charges', href: '/calculators/mpesa' },
-    { label: 'Loan Calculator', href: '/calculators/personal-loan' },
-    { label: 'Mortgage Calculator', href: '/calculators/mortgage' },
+    { label: 'PAYE Calculator', href: '/paye-calculator-kenya' },
+    { label: 'M-Pesa Charges', href: '/mpesa-charges-calculator' },
+    { label: 'Loan Calculator', href: '/loan-calculator-kenya' },
+    { label: 'Mortgage Calculator', href: '/mortgage-calculator-kenya' },
   ],
   compareRates: [
     { label: 'Lending Rates', href: '/compare/lending' },

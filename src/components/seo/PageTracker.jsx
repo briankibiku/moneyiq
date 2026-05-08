@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
  * Simple GA4 tracker component.
  * Usage: Place in App.jsx near the top of the component tree.
  */
-export default function Analytics({ measurementId }) {
+export default function PageTracker({ measurementId }) {
   const location = useLocation();
 
   useEffect(() => {

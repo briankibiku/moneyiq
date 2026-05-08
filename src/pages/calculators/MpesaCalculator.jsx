@@ -1,6 +1,46 @@
 import { useState, useMemo } from 'react';
 import SEOHead from '../../components/seo/SEOHead';
+import FAQSection from '../../components/ui/FAQSection';
+import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import { formatCurrency } from '../../utils/calculations';
+
+const faqData = [
+  {
+    question: "What is the maximum M-Pesa limit per transaction?",
+    answer: "The maximum amount you can send or withdraw in a single M-Pesa transaction is KES 250,000. Your daily limit is KES 500,000."
+  },
+  {
+    question: "How much are M-Pesa withdrawal charges at an agent?",
+    answer: "Withdrawal charges vary by amount. For example, withdrawing KES 1,000 costs KES 29, while withdrawing KES 10,000 costs KES 115."
+  },
+  {
+    question: "Are M-Pesa to M-Pesa transfers free?",
+    answer: "Transfers between KES 1 and KES 100 are free for registered users. Above KES 100, charges apply based on the amount being sent."
+  }
+];
+
+const structuredFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://moneyiq.co.ke/" },
+    { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://moneyiq.co.ke/calculators" },
+    { "@type": "ListItem", "position": 3, "name": "M-Pesa Charges", "item": "https://moneyiq.co.ke/mpesa-charges-calculator" }
+  ]
+};
 
 const MPESA_RATES = [
   { min: 1, max: 49, send_registered: 0, send_unregistered: "N/A", withdraw_agent: "N/A" },
@@ -31,10 +71,17 @@ export default function MpesaCalculator() {
 
   return (
     <>
-      <SEOHead title="M-Pesa Charges Calculator" description="Check M-Pesa transaction fees instantly." />
+      <SEOHead 
+        title="M-Pesa Charges Calculator 2026 - Latest Transaction Fees" 
+        description="Check the latest M-Pesa transaction fees for sending and withdrawing money. Updated with 2026 Safaricom rates." 
+        canonical="/mpesa-charges-calculator"
+        structuredData={[structuredFAQ, breadcrumbSchema]}
+      />
 
       <main className="pt-24 pb-24 bg-white min-h-screen">
         <div className="max-w-xl mx-auto px-4 sm:px-6">
+          <Breadcrumbs items={[{ label: 'Calculators', href: '/calculators' }, { label: 'M-Pesa' }]} />
+          
           {/* Header */}
           <div className="mb-8 border-b border-gray-100 pb-6 text-center sm:text-left">
             <h1 className="text-3xl font-bold text-gray-900 tracking-tight mb-1 uppercase tracking-widest">M-Pesa Charges</h1>
@@ -101,6 +148,8 @@ export default function MpesaCalculator() {
               Safaricom Rates &bull; MoneyIQ Kenya
             </p>
           </div>
+          {/* FAQ Section */}
+          <FAQSection faqs={faqData} />
         </div>
       </main>
     </>

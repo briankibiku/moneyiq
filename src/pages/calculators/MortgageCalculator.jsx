@@ -3,6 +3,46 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/seo/SEOHead';
 import { useBankRates } from '../../hooks/useDataFetch';
 import { calculateMortgage, formatCurrency } from '../../utils/calculations';
+import FAQSection from '../../components/ui/FAQSection';
+import Breadcrumbs from '../../components/ui/Breadcrumbs';
+
+const faqData = [
+  {
+    question: "How much down payment do I need for a mortgage in Kenya?",
+    answer: "Most Kenyan banks require a minimum down payment of 10% to 20% of the property value."
+  },
+  {
+    question: "What is the maximum mortgage tenure in Kenya?",
+    answer: "Typical mortgage tenures in Kenya range from 10 to 25 years, depending on the lender and the borrower's age."
+  },
+  {
+    question: "Are there additional costs when taking a mortgage?",
+    answer: "Yes, you should budget for extra costs such as valuation fees, legal fees, stamp duty (2-4%), and insurance premiums."
+  }
+];
+
+const structuredFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://moneyiq.co.ke/" },
+    { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://moneyiq.co.ke/calculators" },
+    { "@type": "ListItem", "position": 3, "name": "Mortgage Calculator", "item": "https://moneyiq.co.ke/mortgage-calculator-kenya" }
+  ]
+};
 
 export default function MortgageCalculator() {
   const { data: ratesData } = useBankRates();
@@ -16,10 +56,17 @@ export default function MortgageCalculator() {
 
   return (
     <>
-      <SEOHead title="Mortgage Calculator Kenya" description="Calculate your monthly home loan repayments with our professional tool." />
+      <SEOHead 
+        title="Mortgage Calculator Kenya 2026 - Home Loan Repayments" 
+        description="Calculate your monthly home loan repayments and see a full amortization schedule with the latest Kenyan bank rates." 
+        canonical="/mortgage-calculator-kenya" 
+        structuredData={[structuredFAQ, breadcrumbSchema]}
+      />
 
       <main className="pt-24 pb-24 bg-white min-h-screen">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <Breadcrumbs items={[{ label: 'Calculators', href: '/calculators' }, { label: 'Mortgage' }]} />
+          
           {/* Header */}
           <div className="mb-12 border-b border-gray-100 pb-6">
             <h1 className="text-3xl font-bold text-gray-900 tracking-tight mb-1 uppercase tracking-widest">Mortgage Plan</h1>
@@ -123,6 +170,8 @@ export default function MortgageCalculator() {
               </div>
             </div>
           </div>
+          {/* FAQ Section */}
+          <FAQSection faqs={faqData} />
         </div>
       </main>
     </>

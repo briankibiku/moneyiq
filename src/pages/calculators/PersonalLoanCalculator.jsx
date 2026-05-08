@@ -4,6 +4,46 @@ import SEOHead from '../../components/seo/SEOHead';
 import { useBankRates } from '../../hooks/useDataFetch';
 import { calculateLoanRepayment, formatCurrency, formatPercent } from '../../utils/calculations';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import FAQSection from '../../components/ui/FAQSection';
+import Breadcrumbs from '../../components/ui/Breadcrumbs';
+
+const faqData = [
+  {
+    question: "What is the current bank lending rate in Kenya?",
+    answer: "As of 2026, average lending rates in Kenya range between 13% and 18%, influenced by the Central Bank Rate (CBR) and individual bank risk assessments."
+  },
+  {
+    question: "How do I calculate my monthly loan repayment (EMI)?",
+    answer: "Monthly repayments are calculated using the formula: [P x R x (1+R)^N] / [(1+R)^N - 1], where P is Principal, R is monthly interest rate, and N is the number of months."
+  },
+  {
+    question: "What factors affect loan eligibility in Kenya?",
+    answer: "Banks primarily look at your credit score (CRB report), monthly income, debt-to-income ratio, and employment stability."
+  }
+];
+
+const structuredFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://moneyiq.co.ke/" },
+    { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://moneyiq.co.ke/calculators" },
+    { "@type": "ListItem", "position": 3, "name": "Loan Calculator", "item": "https://moneyiq.co.ke/loan-calculator-kenya" }
+  ]
+};
 
 const COLORS = ['#111827', '#6B7280'];
 
@@ -21,10 +61,16 @@ export default function PersonalLoanCalculator() {
 
   return (
     <>
-      <SEOHead title="Personal Loan Calculator Kenya" description="Calculate your monthly personal loan repayments." canonical="/calculators/personal-loan" />
+      <SEOHead 
+        title="Personal Loan Calculator Kenya 2026 - Monthly Repayments" 
+        description="Estimate your monthly personal loan repayments and total interest costs with the latest bank rates in Kenya." 
+        canonical="/loan-calculator-kenya" 
+        structuredData={[structuredFAQ, breadcrumbSchema]}
+      />
 
       <main className="pt-32 pb-24 bg-white min-h-screen">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <Breadcrumbs items={[{ label: 'Calculators', href: '/calculators' }, { label: 'Personal Loan' }]} />
           <div className="mb-16">
             <h1 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">Loan Calculator</h1>
             <p className="text-gray-500 max-w-xl">Estimate your monthly personal loan repayments and total interest costs.</p>
@@ -108,6 +154,9 @@ export default function PersonalLoanCalculator() {
               </div>
             </div>
           </div>
+          
+          {/* FAQ Section */}
+          <FAQSection faqs={faqData} />
         </div>
       </main>
     </>

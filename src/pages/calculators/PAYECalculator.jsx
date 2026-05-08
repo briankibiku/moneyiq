@@ -1,7 +1,47 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SEOHead from '../../components/seo/SEOHead';
+import FAQSection from '../../components/ui/FAQSection';
+import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import { formatCurrency } from '../../utils/calculations';
+
+const faqData = [
+  {
+    question: "How is PAYE calculated in Kenya?",
+    answer: "PAYE (Pay As You Earn) is calculated based on graduated tax bands. Your taxable income (gross salary minus NSSF contributions) is subjected to different rates: 10% for the first KES 24,000, 25% for the next KES 8,333, 30% for the next KES 467,667, and so on. A personal relief of KES 2,400 is then deducted from the total tax to arrive at the final PAYE."
+  },
+  {
+    question: "Does NHIF still apply?",
+    answer: "As of 2024/2025, NHIF has been transitioned to SHIF (Social Health Insurance Fund). The deduction is now 2.75% of your gross salary, which is mandatory for all Kenyan employees."
+  },
+  {
+    question: "How much tax do I pay on 100k salary?",
+    answer: "For a gross salary of KES 100,000, your PAYE would be approximately KES 18,343 (after NSSF and Personal Relief). Total deductions including SHIF (KES 2,750) and Housing Levy (KES 1,500) would result in a net pay of roughly KES 75,307."
+  }
+];
+
+const structuredFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://moneyiq.co.ke/" },
+    { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://moneyiq.co.ke/calculators" },
+    { "@type": "ListItem", "position": 3, "name": "PAYE Calculator", "item": "https://moneyiq.co.ke/paye-calculator-kenya" }
+  ]
+};
 
 /**
  * Kenya PAYE Tax Brackets (Finance Act 2023 / 2024 / 2026)
@@ -92,10 +132,17 @@ export default function PAYECalculator() {
 
   return (
     <>
-      <SEOHead title="Kenya PAYE Calculator 2026" description="Calculate Gross to Net or Net to Gross salary for Kenya." />
+      <SEOHead 
+        title="PAYE Calculator Kenya 2026 - Monthly Income Tax" 
+        description="Calculate your Net Salary with the latest Kenya PAYE rates for 2026. Includes Housing Levy, NSSF, and SHIF deductions." 
+        canonical="/paye-calculator-kenya"
+        structuredData={[structuredFAQ, breadcrumbSchema]}
+      />
 
       <main className="pt-24 pb-24 bg-white min-h-screen">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <Breadcrumbs items={[{ label: 'Calculators', href: '/calculators' }, { label: 'PAYE' }]} />
+          
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-3xl font-bold text-gray-900 tracking-tight mb-2 uppercase tracking-widest">PAYE Calculator</h1>
@@ -230,6 +277,9 @@ export default function PAYECalculator() {
               </div>
             </div>
           </div>
+
+          {/* FAQ Section */}
+          <FAQSection faqs={faqData} />
         </div>
       </main>
     </>

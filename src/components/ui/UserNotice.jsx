@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const COOKIE_KEY = 'moneyiq_cookie_consent';
 
-export default function CookieConsent() {
+export default function UserNotice() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

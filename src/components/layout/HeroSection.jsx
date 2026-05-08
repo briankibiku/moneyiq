@@ -35,7 +35,7 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Link
-                to="/calculators/paye"
+                to="/paye-calculator-kenya"
                 className="inline-flex items-center justify-center px-10 py-4 rounded-xl text-base font-bold text-white bg-gray-900 hover:bg-black transition-all"
               >
                 Launch Calculator

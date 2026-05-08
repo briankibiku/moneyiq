@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, lazy, Suspense } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import Analytics from './components/seo/Analytics';
-import CookieConsent from './components/ui/CookieConsent';
+import PageTracker from './components/seo/PageTracker';
+import UserNotice from './components/ui/UserNotice';
 
 // Eager-load the home page (critical path)
 import Home from './pages/Home';
@@ -25,6 +25,7 @@ const ArticlePage = lazy(() => import('./pages/articles/ArticlePage'));
 const Glossary = lazy(() => import('./pages/glossary/Glossary'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 const About = lazy(() => import('./pages/about/About'));
+const FAQs = lazy(() => import('./pages/FAQs'));
 
 /** Loading fallback while lazy chunks load */
 function PageLoader() {
@@ -57,11 +58,17 @@ function AppLayout() {
           <Routes>
             <Route path="/" element={<Home />} />
             
-            {/* Calculators */}
-            <Route path="/calculators/mortgage" element={<MortgageCalculator />} />
-            <Route path="/calculators/personal-loan" element={<PersonalLoanCalculator />} />
-            <Route path="/calculators/paye" element={<PAYECalculator />} />
-            <Route path="/calculators/mpesa" element={<MpesaCalculator />} />
+            {/* Calculators - SEO Optimized Routes */}
+            <Route path="/mortgage-calculator-kenya" element={<MortgageCalculator />} />
+            <Route path="/loan-calculator-kenya" element={<PersonalLoanCalculator />} />
+            <Route path="/paye-calculator-kenya" element={<PAYECalculator />} />
+            <Route path="/mpesa-charges-calculator" element={<MpesaCalculator />} />
+
+            {/* Legacy Redirects for SEO Continuity */}
+            <Route path="/calculators/mortgage" element={<Navigate to="/mortgage-calculator-kenya" replace />} />
+            <Route path="/calculators/personal-loan" element={<Navigate to="/loan-calculator-kenya" replace />} />
+            <Route path="/calculators/paye" element={<Navigate to="/paye-calculator-kenya" replace />} />
+            <Route path="/calculators/mpesa" element={<Navigate to="/mpesa-charges-calculator" replace />} />
             
             {/* Rate Comparison */}
             <Route path="/compare" element={<LendingRates />} />
@@ -79,8 +86,9 @@ function AppLayout() {
             <Route path="/articles" element={<ArticlesIndex />} />
             <Route path="/articles/:slug" element={<ArticlePage />} />
             
-            {/* About */}
+            {/* About & FAQs */}
             <Route path="/about" element={<About />} />
+            <Route path="/faqs" element={<FAQs />} />
             <Route path="/glossary" element={<Glossary />} />
             <Route path="/admin" element={<AdminDashboard />} />
             
@@ -90,7 +98,7 @@ function AppLayout() {
         </Suspense>
       </div>
       <Footer />
-      <CookieConsent />
+      <UserNotice />
     </div>
   );
 }
@@ -116,7 +124,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        <Analytics measurementId="G-XXXXXXXXXX" />
+        <PageTracker measurementId="G-XXXXXXXXXX" />
         <AppLayout />
       </Router>
     </HelmetProvider>
